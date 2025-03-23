@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Atlas Student's Council</title>
+    <link rel="icon" href="atlaslogo.png" type="image/png">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Cardo&family=Cormorant+Garamond:wght@700&display=swap');
+        
+        body {
+            font-family: 'Cardo', serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            text-align: center;
+        }
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeInSlide 3s forwards;
+        }
+        @keyframes fadeInSlide {
+            0% {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        .notice {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+        }
+        .notice-box {
+            background-color: white;
+            padding: 40px;
+            border-radius: 15px;
+            width: 60%;
+            max-width: 600px;
+            text-align: left;
+            position: relative;
+            border: 5px solid #d4aa00;
+        }
+        .notice-title {
+            font-size: 40px;
+            font-family: 'Cormorant Garamond', serif;
+            color: blue;
+            text-align: center;
+        }
+        .close-btn {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background-color: #d4aa00;
+            border: none;
+            padding: 5px 10px;
+            font-size: 16px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+        .header {
+            background-color: white;
+            padding: 7px;
+	    padding-bottom: 2px;
+            font-size: 98px;
+            font-weight: bold;
+            color: #1a3e6e;
+            font-family: 'Cormorant Garamond', serif;
+        }
+	.sub-header{
+	    background-color: white;
+            padding-bottom: 10px;
+            font-size: 25px;
+            font-weight: bold;
+            color: #1a3e6e;
+            font-family: 'Cormorant Garamond', serif;
+	}
+        .nav {
+            background-color: #0c2340;
+            padding: 10px;
+        }
+        .nav a {
+            color: white;
+            margin: 0 15px;
+            text-decoration: none;
+            font-size: 18px;
+            transition: color 0.3s;
+        }
+        .nav a:hover {
+            color: #f4b63e;
+        }
+        .main {
+            background-color: #f4b63e;
+            padding: 40px;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+        .quote {
+            font-size: 24px;
+            font-style: italic;
+            flex: 1;
+            min-width: 300px;
+        }
+        .logo img {
+            width: 100%;
+            max-width: 300px;
+        }
+        .learn-more {
+            padding: 40px;
+            background-color: white;
+        }
+        .learn-more h2 {
+            font-size: 40px;
+            color: green;
+        }
+        .info-boxes {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+        }
+        .info-box {
+            background-color: #d4aa00;
+            padding: 120px;
+            width: 70%;
+            max-width: 350px;
+            font-size: 24px;
+            font-weight: bold;
+            border-radius: 10px;
+            transition: transform 0.3s;
+        }
+        .info-box:hover {
+            transform: scale(1.05);
+        }
+        .visit-btn {
+            margin-top: 20px;
+            padding: 12px 24px;
+            background-color: green;
+            color: white;
+            border: none;
+            font-size: 20px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+        .footer {
+            background-color: black;
+            color: white;
+            padding: 10px;
+            font-size: 16px;
+        }
+    </style>
+    <script>
+        function closeNotice() {
+            document.getElementById("notice").style.display = "none";
+        }
+    </script>
+</head>
+<body>
+    <div class="notice fade-in" id="notice">
+        <div class="notice-box">
+            <button class="close-btn" onclick="closeNotice()">X</button>
+            <h1 class="notice-title">Notice</h1>
+            <strong>MUN</strong>
+            <p>Model United Nations is being hosted by Atlas Students' Council. Check out the News tab for more details.</p>
+        </div>
+    </div>
+    <div class="header fade-in">ATLAS
+</div>
+	 <div class="sub-header fade-in">STUDENT'S COUNCIL</div>
+
+    <div class="nav fade-in">
+        <a href="index.html">Home</a>
+        <a href="news.html">News</a>
+        <a href="members.html">Members</a>
+        <a href="about.html">About us</a>
+        <a href="contact.html">Contact</a>
+        <a href="gallery.html">Gallery</a>
+    </div>
+    <div class="main fade-in">
+        <div class="quote">"We are what we are because we dared to dream" - Atlas Council</div>
+        <div class="logo"><img src="atlaslogo.png" alt="Atlas Logo"></div>
+    </div>
+    <div class="learn-more fade-in">
+        <h2>Learn more</h2>
+        <div class="info-boxes">
+            <div class="info-box">
+                Stay informed and ahead of the curve by visiting our news page.
+              <a href="news.html">  <button class="visit-btn">VISIT</button></a>
+            </div>
+            <div class="info-box">
+                Look at the highlights of our recent events at the gallery tab.
+               <a href="gallery.html"> <button class="visit-btn">VISIT</button></a>
+            </div>
+            <div class="info-box">
+                Know our members and how to contact them by visiting our members tab.
+               <a href="members.html"> <button  class="visit-btn">VISIT</button></a>
+            </div>
+        </div>
+    </div>
+    <div class="footer fade-in">&copy; All Rights Reserved. Atlas Student's Council 2024</div>
+</body>
+</html>
