@@ -3,9 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>About Us - ATLAS Student's Council</title> 
-<link rel="icon" href="atlaslogo.png" type="image/png">
-<style>
+    <title>About Us - ATLAS Student's Council</title>
+    <link rel="icon" href="atlaslogo.png" type="image/png">
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <style>
         body {
             font-family: 'Montserrat', sans-serif;
             background-color: #f4b63e;
@@ -26,39 +28,7 @@
             letter-spacing: 1.5px;
         }
 
-        header p {
-            font-size: 1.2rem;
-            margin: 10px 0 0;
-            letter-spacing: 1px;
-        }
-
-        h2 {
-            color: #6f42c1;
-            font-size: 2rem;
-            margin-bottom: 20px;
-            position: relative;
-        }
-
-        h2:after {
-            content: '';
-            width: 50px;
-            height: 4px;
-            background: #007bff;
-            display: block;
-            margin-top: 10px;
-        }
-
-        p {
-            font-size: 1.1rem;
-            line-height: 1.8;
-            margin-bottom: 20px;
-        }
-
         .card {
-            background: white;
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
             transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
         }
 
@@ -68,12 +38,8 @@
         }
 
         .join-us {
-            text-align: center;
             background: #6f42c1;
             color: white;
-            padding: 40px 20px;
-            border-radius: 10px;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
             transition: background 0.3s ease;
         }
 
@@ -81,46 +47,16 @@
             background: #5a35a8;
         }
 
-        .join-us a {
-            color: white;
-            font-weight: 600;
-            text-decoration: none;
-            font-size: 1.2rem;
-            border: 2px solid white;
-            padding: 10px 20px;
-            border-radius: 50px;
+        .join-us a.btn {
             transition: background 0.3s ease, color 0.3s ease;
         }
-
-        .join-us a:hover {
-            background: white;
-            color: #6f42c1;
-        }
-
-        #join {
-            color: white;
-        }
-	section{
-	width:70%;
-	}
 
         .back-button {
             position: absolute;
             top: 20px;
             left: 20px;
-            padding: 10px 20px;
-            background: #343a40;
-            color: white;
-            border: none;
-            border-radius: 5px;
-            font-size: 1.2rem;
-            cursor: pointer;
+            border-radius: 100px;
             transition: background 0.3s ease;
-           border-radius: 100px;
-        }
-
-        .back-button:hover {
-            background: #5a6268;
         }
 
         @media (min-width: 768px) {
@@ -131,59 +67,78 @@
             header h1 {
                 font-size: 4rem;
             }
+        }
 
-            header p {
-                font-size: 1.5rem;
+        @media (max-width: 576px) {
+            header h1 {
+                font-size: 2.5rem;
             }
-
-            p {
+            header p {
                 font-size: 1.2rem;
             }
+            .card h2 {
+                font-size: 1.5rem;
+            }
+            .card p {
+                font-size: 1rem;
+            }
+            .back-button {
+                padding: 8px 16px;
+                font-size: 1rem;
+            }
         }
-    </style>   
-<header> 
- <a href="index.html"> <button class="back-button">Back to Homepage</button> </a> 
- <h1>ATLAS Student's Council</h1> 
- <p>Dolna Day School</p> 
-</header> 
-<center>
-<br><br>
-<main class="container mt-4"> 
- <div class="row"> 
-  <div class="col-md-12"> 
-   <section class="card mb-4"> 
-    <h2>About Us</h2> 
-    <p>Welcome to the Atlas Club, the premier student organization at Dolna Day School. Founded with the mission of empowering students to explore the world, expand their knowledge, and develop leadership skills, Atlas is a diverse community where creativity, curiosity, and collaboration thrive.</p> 
-   </section> 
-  </div> 
-<br><br>
-  <div class="col-md-12"> 
-   <section class="card mb-4"> 
-    <h2>Our Mission</h2> 
-    <p>Our mission is to provide a platform for students to engage in meaningful activities, both academic and extracurricular, that promote personal growth, global awareness, and a sense of community. We strive to inspire students to think critically, act ethically, and contribute positively to society.</p> 
-   </section> 
-  </div> 
-<br><br>
-  <div class="col-md-12"> 
-   <section class="card mb-4"> 
-    <h2>Our Vision</h2> 
-    <p>At Atlas, we envision a vibrant student community where everyone feels valued, inspired, and empowered to reach their full potential. We aim to foster a spirit of exploration, innovation, and leadership that will equip our members with the skills and experiences necessary to succeed in the ever-changing world.</p> 
-   </section> 
-  </div> 
-<br><br>
-  <div class="col-md-12"> 
-   <section class="card mb-4"> 
-    <h2>What We Do</h2> 
-    <p>The Atlas Club hosts a variety of activities throughout the year, including academic competitions, cultural events, community service projects, and leadership workshops. Our events are designed to challenge our members intellectually and creatively while promoting teamwork and camaraderie.</p> 
-   </section> 
-  </div> 
- </div> 
-<br><br>
- <section class="join-us"> 
-  <h2 id="join">Join Us</h2> 
-  <p>If you're a student at Dolna Day School who is eager to learn, grow, and make a difference, we invite you to join the Atlas Club. Whether you're interested in organizing events, participating in discussions, or leading initiatives, there's a place for you here.</p> 
-  <p>To become a member or learn more about our upcoming events, please contact us at 
-<a href="contact.html">contact4atlascouncil@gmail.com</a></p> 
- </section> 
-<center>
-</main> 
+    </style>
+</head>
+<body>
+    <header>
+        <a href="index.html"><button class="btn back-button btn-dark">Back to Homepage</button></a>
+        <h1>ATLAS Student's Council</h1>
+        <p class="lead">Dolna Day School</p>
+    </header>
+
+    <main class="container mt-4">
+        <div class="row justify-content-center">
+            <div class="col-md-8">
+                <section class="card mb-4 p-4">
+                    <h2>About Us</h2>
+                    <p class="lead">Welcome to the Atlas Club, the premier student organization at Dolna Day School. Founded with the mission of empowering students to explore the world, expand their knowledge, and develop leadership skills, Atlas is a diverse community where creativity, curiosity, and collaboration thrive.</p>
+                </section>
+            </div>
+
+            <div class="col-md-8">
+                <section class="card mb-4 p-4">
+                    <h2>Our Mission</h2>
+                    <p class="lead">Our mission is to provide a platform for students to engage in meaningful activities, both academic and extracurricular, that promote personal growth, global awareness, and a sense of community. We strive to inspire students to think critically, act ethically, and contribute positively to society.</p>
+                </section>
+            </div>
+
+            <div class="col-md-8">
+                <section class="card mb-4 p-4">
+                    <h2>Our Vision</h2>
+                    <p class="lead">At Atlas, we envision a vibrant student community where everyone feels valued, inspired, and empowered to reach their full potential. We aim to foster a spirit of exploration, innovation, and leadership that will equip our members with the skills and experiences necessary to succeed in the ever-changing world.</p>
+                </section>
+            </div>
+
+            <div class="col-md-8">
+                <section class="card mb-4 p-4">
+                    <h2>What We Do</h2>
+                    <p class="lead">The Atlas Club hosts a variety of activities throughout the year, including academic competitions, cultural events, community service projects, and leadership workshops. Our events are designed to challenge our members intellectually and creatively while promoting teamwork and camaraderie.</p>
+                </section>
+            </div>
+
+            <div class="col-md-8">
+                <section class="join-us p-4 mb-4 rounded">
+                    <h2 id="join">Join Us</h2>
+                    <p class="lead">If you're a student at Dolna Day School who is eager to learn, grow, and make a difference, we invite you to join the Atlas Club. Whether you're interested in organizing events, participating in discussions, or leading initiatives, there's a place for you here.</p>
+                    <p class="lead">To become a member or learn more about our upcoming events, please contact us at
+                        <a href="contact.html" class="btn btn-outline-light">contact4atlascouncil@gmail.com</a>
+                    </p>
+                </section>
+            </div>
+        </div>
+    </main>
+
+    <!-- Bootstrap JS Bundle -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAAlished: 55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+</body>
+</html>
