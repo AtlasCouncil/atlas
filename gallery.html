@@ -1,12 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<link rel="icon" href="atlaslogo.png" type="image/png">
-
+    <link rel="icon" href="atlaslogo.png" type="image/png">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Gallery - Atlas Student's Council</title>
+
+    <!-- Bootstrap & Google Fonts -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+
     <style>
         * {
             margin: 0;
@@ -16,7 +19,8 @@
         }
 
         body {
-            background-color: #f4f4f4;
+            background-color: #f9f9f9;
+            color: #333;
         }
 
         /* Header */
@@ -24,28 +28,33 @@
             background-color: #003366;
             padding: 20px;
             text-align: center;
+            color: white;
             position: relative;
         }
 
         header h1 {
             font-size: 2.5em;
-            color: #ffffff;
+            font-weight: 600;
+            margin: 0;
         }
 
         .back-btn {
             position: absolute;
             left: 20px;
-            top: 20px;
-            background-color: #ffffff;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: white;
             color: #003366;
             padding: 10px 20px;
             text-decoration: none;
-            border-radius: 5px;
+            border-radius: 8px;
             font-weight: 600;
+            transition: 0.3s;
+            z-index: 1000;
         }
 
         .back-btn:hover {
-            background-color: #e0e0e0;
+            background-color: #ddd;
         }
 
         /* Slider */
@@ -53,9 +62,9 @@
             max-width: 100%;
             margin: 20px auto;
             overflow: hidden;
-            border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
             position: relative;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
         }
 
         .slides {
@@ -77,13 +86,11 @@
             position: relative;
         }
 
-        .slide img,
-        .slide video {
+        .slide img, .slide video {
             width: 100%;
-            height: 700px;
-            border-radius: 10px;
+            height: auto;
             object-fit: cover;
-            aspect-ratio: 3 / 1; /* Ensure consistent aspect ratio */
+            border-radius: 10px;
         }
 
         .prev, .next {
@@ -106,56 +113,41 @@
 
         /* Gallery */
         .gallery-section {
-            padding: 20px;
+            padding: 40px 10px;
+            text-align: center;
         }
 
         .gallery-section h2 {
-            font-size: 1.8em;
+            font-size: 2em;
             margin-bottom: 20px;
             color: #003366;
         }
 
         .gallery-grid {
             display: grid;
-            grid-template-columns: repeat(4, 1fr); /* Exactly 4 columns */
-            gap: 20px;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 15px;
+            justify-content: center;
+            padding: 20px;
         }
 
         .gallery-item {
+            overflow: hidden;
+            border-radius: 8px;
             position: relative;
+            background: #ddd;
+            aspect-ratio: 1 / 1; /* Ensures all boxes are the same size */
         }
 
-        .gallery-item img,
-        .gallery-item .video-thumbnail {
+        .gallery-item img, .gallery-item .video-thumbnail {
             width: 100%;
-            height: 450px;
+            height: 100%;
             object-fit: cover;
-            border-radius: 5px;
             transition: transform 0.3s ease;
         }
 
-        .gallery-item:hover img,
-        .gallery-item:hover .video-thumbnail {
+        .gallery-item:hover img, .gallery-item:hover .video-thumbnail {
             transform: scale(1.05);
-        }
-
-        /* Play Button Overlay for Videos */
-        .gallery-item.video::before {
-            content: '▶';
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            font-size: 40px;
-            color: #ffffff;
-            background: rgba(0, 0, 0, 0.5);
-            border-radius: 50%;
-            width: 60px;
-            height: 60px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            pointer-events: none;
         }
 
         /* Lightbox */
@@ -167,53 +159,31 @@
             width: 100%;
             height: 100%;
             background: rgba(0, 0, 0, 0.8);
-            overflow-y: auto; /* Enable scrolling for tall content */
+            overflow-y: auto;
             z-index: 1000;
-            padding: 20px; /* Add padding to prevent content from touching edges */
+            padding: 20px;
+            text-align: center;
         }
 
         .lightbox-content {
             max-width: 90%;
-            width: auto;
-            height: auto;
-            border-radius: 10px;
-            margin: 0 auto; /* Center horizontally */
+            margin: 0 auto;
         }
 
-        .lightbox img,
-        .lightbox video {
+        .lightbox img, .lightbox video {
             width: 100%;
             height: auto;
             border-radius: 10px;
-            display: block; /* Ensure block display for proper layout */
+            display: block;
         }
 
         .close-btn {
-            position: fixed;
+            position: absolute;
             top: 20px;
             right: 20px;
-            color: #ffffff;
+            color: white;
             font-size: 30px;
             cursor: pointer;
-            z-index: 1001; /* Ensure it’s above the content */
-        }
-
-        /* Custom Scrollbar for Lightbox */
-        .lightbox::-webkit-scrollbar {
-            width: 8px;
-        }
-
-        .lightbox::-webkit-scrollbar-track {
-            background: rgba(255, 255, 255, 0.1);
-        }
-
-        .lightbox::-webkit-scrollbar-thumb {
-            background: #888;
-            border-radius: 4px;
-        }
-
-        .lightbox::-webkit-scrollbar-thumb:hover {
-            background: #555;
         }
 
         /* Footer */
@@ -222,60 +192,37 @@
             color: white;
             text-align: center;
             padding: 10px;
+            margin-top: 20px;
         }
 
-        /* Responsive */
+        /* Responsive Adjustments */
         @media (max-width: 768px) {
-            .gallery-grid {
-                grid-template-columns: repeat(2, 1fr); /* 2 columns on smaller screens */
-            }
-
             header h1 {
                 font-size: 2em;
             }
 
-            .lightbox {
-                padding: 10px;
-            }
-
-            .close-btn {
+            .back-btn {
                 top: 10px;
-                right: 10px;
-            }
-
-            /* Adjust heights for smaller screens */
-            .slide img,
-            .slide video {
-                height: 400px; /* Reduced height for mobile */
-            }
-
-            .gallery-item img,
-            .gallery-item .video-thumbnail {
-                height: 300px; /* Reduced height for mobile */
+                left: 10px;
+                padding: 8px 15px;
+                font-size: 0.9em;
             }
         }
     </style>
 </head>
 <body>
+
     <header>
-        <a href="index.html" class="back-btn">BACK TO HOMEPAGE</a>
+        <a href="index.html" class="back-btn">BACK</a>
         <h1>GALLERY</h1>
     </header>
 
     <section class="slider">
         <div class="slides">
-            <div class="slide active">
-                <img src="highlight0.jpg" alt="Highlight 1">
-            </div>
-            <div class="slide">
-                <img src="highlight1.jpg" alt="Highlight 2">
-            </div>
-            <div class="slide">
-                <img src="highlight2.jpg" alt="Highlight 3">
-            </div>
-            <div class="slide">
-                <img src="highlight3.jpg" alt="Highlight 4">
-            </div>
+            <div class="slide active"><img src="highlight0.jpg" alt="Highlight 1"></div>
+            <div class="slide"><img src="highlight1.jpg" alt="Highlight 2"></div>
+            <div class="slide"><img src="highlight2.jpg" alt="Highlight 3"></div>
+            <div class="slide"><img src="highlight3.jpg" alt="Highlight 4"></div>
         </div>
         <div class="prev" onclick="changeSlide(-1)">❮</div>
         <div class="next" onclick="changeSlide(1)">❯</div>
@@ -284,7 +231,7 @@
     <section class="gallery-section">
         <h2>ALL MOMENTS</h2>
         <div class="gallery-grid">
-            <div class="gallery-item" onclick="openLightbox('4.jpg', 'image')">
+                       <div class="gallery-item" onclick="openLightbox('4.jpg', 'image')">
                 <img src="4.jpg" alt="Gallery Image 1">
             </div>
             <div class="gallery-item video" onclick="openLightbox('vid1.mp4', 'video')">
@@ -312,7 +259,6 @@
 	<div class="gallery-item" onclick="openLightbox('3.jpg', 'image')">
                 <img src="3.jpg" alt="Gallery Image 5">
             </div>
-            </div>
         </div>
     </section>
 
@@ -321,39 +267,18 @@
         <div class="lightbox-content" id="lightbox-content"></div>
     </div>
 
-    <footer>
-        <p>© ALL RIGHTS RESERVED. Atlas Student's Council 2024</p>
-    </footer>
+    <footer>© 2024 Atlas Student's Council</footer>
 
     <script>
         let currentSlide = 0;
         const slides = document.querySelectorAll('.slide');
-        const totalSlides = slides.length;
-        let slideInterval = setInterval(nextSlide, 5000);
-
-        function nextSlide() {
-            slides[currentSlide].classList.remove('active');
-            const currentVideo = slides[currentSlide].querySelector('video');
-            if (currentVideo) currentVideo.pause();
-            currentSlide = (currentSlide + 1) % totalSlides;
-            slides[currentSlide].classList.add('active');
-            const nextVideo = slides[currentSlide].querySelector('video');
-            if (nextVideo) nextVideo.play();
-        }
 
         function changeSlide(direction) {
-            clearInterval(slideInterval);
             slides[currentSlide].classList.remove('active');
-            const currentVideo = slides[currentSlide].querySelector('video');
-            if (currentVideo) currentVideo.pause();
-            currentSlide = (currentSlide + direction + totalSlides) % totalSlides;
+            currentSlide = (currentSlide + direction + slides.length) % slides.length;
             slides[currentSlide].classList.add('active');
-            const nextVideo = slides[currentSlide].querySelector('video');
-            if (nextVideo) nextVideo.play();
-            slideInterval = setInterval(nextSlide, 5000);
         }
-
-        function openLightbox(src, type) {
+  function openLightbox(src, type) {
             const lightbox = document.getElementById('lightbox');
             const lightboxContent = document.getElementById('lightbox-content');
             lightboxContent.innerHTML = '';
@@ -379,5 +304,6 @@
             lightbox.style.display = 'none';
         }
     </script>
+
 </body>
 </html>
