@@ -10,6 +10,35 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     <!-- Animate.css for animations -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <script>
+    // Disable F12 (DevTools)
+        document.addEventListener('keydown', function (e) {
+            if (e.key === 'F12' || (e.ctrlKey && e.shiftKey && e.key === 'I')) {
+                e.preventDefault();
+             
+            }
+        });
+
+        // Disable right-click and F12 for the entire page
+        window.addEventListener('load', function () {
+            document.body.addEventListener('contextmenu', function (e) {
+                e.preventDefault();
+            });
+
+            window.onkeydown = function (e) {
+                if (e.keyCode === 123) { // F12 key
+                    e.preventDefault();
+                  
+                }
+
+                // Preventing F12 and other dev tools access like right-click
+                if (e.ctrlKey && e.shiftKey && (e.key === 'I' || e.key === 'J')) {
+                    e.preventDefault();
+                
+                }
+            };
+        });
+    </script>
     <style>
         body {
             font-family: 'Roboto', sans-serif;
