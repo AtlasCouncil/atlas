@@ -5,7 +5,35 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Members</title>
 	<link rel="icon" href="atlaslogo.png" type="image/png">
+<script>
+	// Disable F12 (DevTools)
+        document.addEventListener('keydown', function (e) {
+            if (e.key === 'F12' || (e.ctrlKey && e.shiftKey && e.key === 'I')) {
+                e.preventDefault();
+             
+            }
+        });
 
+        // Disable right-click and F12 for the entire page
+        window.addEventListener('load', function () {
+            document.body.addEventListener('contextmenu', function (e) {
+                e.preventDefault();
+            });
+
+            window.onkeydown = function (e) {
+                if (e.keyCode === 123) { // F12 key
+                    e.preventDefault();
+                  
+                }
+
+                // Preventing F12 and other dev tools access like right-click
+                if (e.ctrlKey && e.shiftKey && (e.key === 'I' || e.key === 'J')) {
+                    e.preventDefault();
+                
+                }
+            };
+        });
+</script>
     <style>
         body {
             font-family: 'Poppins', sans-serif;
