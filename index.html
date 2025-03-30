@@ -241,14 +241,14 @@
         }
                 document.addEventListener('contextmenu', function (e) {
             e.preventDefault();
-            alert('Right-click is disabled on this page.');
+           
         });
 
         // Disable F12 (DevTools)
         document.addEventListener('keydown', function (e) {
             if (e.key === 'F12' || (e.ctrlKey && e.shiftKey && e.key === 'I')) {
                 e.preventDefault();
-                alert('Developer Tools are disabled.');
+             
             }
         });
 
@@ -261,13 +261,13 @@
             window.onkeydown = function (e) {
                 if (e.keyCode === 123) { // F12 key
                     e.preventDefault();
-                    alert('F12 key is disabled.');
+                  
                 }
 
                 // Preventing F12 and other dev tools access like right-click
                 if (e.ctrlKey && e.shiftKey && (e.key === 'I' || e.key === 'J')) {
                     e.preventDefault();
-                    alert('You cannot open DevTools.');
+                
                 }
             };
         });
