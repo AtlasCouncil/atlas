@@ -4,9 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Members</title>
-	<link rel="icon" href="atlaslogo.png" type="image/png">
-<script>
-	// Disable F12 (DevTools)
+    <link rel="icon" href="atlaslogo.png" type="image/png">
+ <script>
+    // Disable F12 (DevTools)
         document.addEventListener('keydown', function (e) {
             if (e.key === 'F12' || (e.ctrlKey && e.shiftKey && e.key === 'I')) {
                 e.preventDefault();
@@ -33,16 +33,17 @@
                 }
             };
         });
-</script>
-    <style>
+    </script>
+   
+ <style>
         body {
             font-family: 'Poppins', sans-serif;
-            background-color: #05213a;
+            background-color: #a1880d;
             color: #333;
         }
 
         .header {
-            background-color: #645ec4;
+            background-color: #110f47;
             color: white;
             padding: 2rem 0;
             text-align: center;
@@ -59,18 +60,32 @@
         .back-button {
             margin: 1rem;
             padding: 0.5rem 1.5rem;
-            background-color: #645ec4;
+            background-color: #170b5c;
             color: white;
             border: none;
             border-radius: 30px;
             font-size: 1rem;
             cursor: pointer;
             transition: background-color 0.3s ease;
-            animation: fadeInUp 1s ease;
         }
 
         .back-button:hover {
-            background-color: #5146d0;
+            background-color: #3c2c94;
+        }
+
+        .dropdown {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .dropdown select {
+            padding: 0.6rem;
+            font-size: 1rem;
+            border-radius: 5px;
+            border: none;
+            background: #645ec4;
+            color: white;
+            cursor: pointer;
         }
 
         .members-container {
@@ -86,11 +101,10 @@
             border-radius: 15px;
             box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
             padding: 1.5rem;
-            width: 230px; /* Set a fixed width for uniformity */
-            height: 300px; /* Set a fixed height for uniformity */
+            width: 230px;
+            height: 300px;
             text-align: center;
             transition: transform 0.3s ease, box-shadow 0.3s ease;
-            animation: fadeInUp 0.8s ease;
         }
 
         .members-card:hover {
@@ -98,19 +112,10 @@
             box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
         }
 
-        .avatar {
-            background-color: #6c63ff;
-            color: white;
-            border-radius: 50%;
+        .avatar img {
             width: 80px;
             height: 80px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.5rem;
-            font-weight: 600;
-            margin: 0 auto 1rem;
-            animation: fadeIn 1s ease;
+            border-radius: 50%;
         }
 
         h2 {
@@ -122,7 +127,7 @@
         p {
             margin-bottom: 0.5rem;
             font-size: 0.9rem;
-            color: #555;
+            color: black;
         }
 
         .contact-info p {
@@ -131,216 +136,93 @@
             margin-top: 1rem;
         }
 
-        @media (max-width: 576px) {
-            .members-container {
-                gap: 1rem;
-            }
-
-            .members-card {
-                max-width: 90%;
-                margin: 0 auto;
-            }
-        }
-
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
-        }
-
-        @keyframes fadeInDown {
-            from { opacity: 0; transform: translateY(-20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        @keyframes fadeInUp {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-	.footer {
+        .footer {
             background-color: black;
             color: white;
             padding: 10px;
             font-size: 16px;
+            margin-top: 20px;
+            text-align: center;
         }
     </style>
- </head>
+</head>
 <body>
-    <div class="header animate__animated animate__fadeInDown">
+    <div class="header">
         <h1>FOUNDING MEMBERS OF ATLAS</h1>
     </div>
+
     <center>
-        <div class="text-center"><a href="index.html">
-            <button class="back-button animate__animated animate__fadeInUp">Back to Homepage</button></a>
+        <div class="text-center">
+            <a href="index.html"><button class="back-button">Back to Homepage</button></a>
         </div>
     </center>
-    <div class="members-container">
-        <!-- Members Cards -->
-        <div class="members-card animate__animated animate__fadeInUp">
-            <div class="avatar"><img src="Snig.jpg" alt="Snig" style="width: 80px; height: 80px; border-radius: 50%;"></div>
-            <h2>Ashton Snighdo</h2>
-            <p><strong>Position:</strong> President</p>
-            <p><strong>Department:</strong> Head of all departments</p>
-            <div class="contact-info">
-                <p><strong>Email:</strong> ashtonsnigdhomistri@gmail.com</p>
-            </div>
-        </div>
- 
-        <div class="members-card animate__animated animate__fadeInUp">
-            <div class="avatar">
-                <img src="modhura.jpg" alt="modhura" style="width: 80px; height: 80px; border-radius: 50%;">
-            </div>
-            <h2>Modhura Mandal</h2>
-            <p><strong>Position:</strong> Vice-President, Class IX Representative, and Head of Public Relations</p>
-            <p><strong>Department:</strong> Assistant of President in all departments</p>
-            <div class="contact-info">
-                <p><strong>Email:</strong> modhuramandal@gmail.com</p>
-            </div>
-        </div>
-	
-        <div class="members-card animate__animated animate__fadeInUp">
-            <div class="avatar">
-                <img src="avantika.jpg" alt="Avantika Karmakar" style="width: 80px; height: 80px; border-radius: 50%;">
-            </div>
-            <h2>Avantika Karmakar</h2>
-            <p><strong>Position:</strong> Secretary</p>
-            <p><strong>Department:</strong> Administration</p>
-            <div class="contact-info">
-                <p><strong>Email: </strong>avantika2058@gmail.com</p>
-            </div>
-        </div>
 
-
-        <div class="members-card animate__animated animate__fadeInUp">
-            <div class="avatar">
-                <img src="avi.jpg" alt="Avirup De" style="width: 80px; height: 80px; border-radius: 50%;">
-            </div>
-            <h2>Avirup De</h2>
-            <p><strong>Position:</strong> Secretary, Head of Finance and Head of IT</p>
-            <p><strong>Department:</strong> Administration, Finance and IT</p>
-            <div class="contact-info">
-                <p><strong>Email:</strong> avirup_de@yahoo.com</p>
-            </div>
-        </div>
-
-        <div class="members-card animate__animated animate__fadeInUp">
-            <div class="avatar"><img src="anko3.png" alt="Ankona" style="width: 80px; height: 80px; border-radius: 50%;"></div>
-            <h2>Ankona Khanra</h2>
-            <p><strong>Position:</strong> Secretary</p>
-            <p><strong>Department:</strong> Administration and Finance</p>
-            <div class="contact-info">
-                <p><strong>Email:</strong> ankonakh16@gmail.com</p>
-            </div>
-        </div>  
-
-        <div class="members-card animate__animated animate__fadeInUp">
-            <div class="avatar"><img src="rishav.jpg" alt="Rishav" style="width: 80px; height: 80px; border-radius: 50%;"></div>
-            <h2>Rishav Mukherjee</h2>
-            <p><strong>Position:</strong> Joint Head of IT, Secretary</p>
-            <p><strong>Department:</strong> Administration, IT and Finance</p>
-            <div class="contact-info">
-                <p><strong>Email:</strong> mukherjeerishav09@gmail.com</p>
-            </div>
-        </div>
-
-   	<div class="members-card animate__animated animate__fadeInUp">
-            <div class="avatar"><img src="jyotishko.jpg" alt="Jyotishko" style="width: 80px; height: 80px; border-radius: 50%;"></div>
-            <h2>Jyotishko Sen</h2>
-            <p><strong>Position:</strong> Class X Representative</p>
-            <p><strong>Department:</strong> Administration, Finance and IT</p>
-            <div class="contact-info">
-                <p><strong>Email:</strong> senjyotishko@gmail.com</p>
-            </div>
-        </div>
-<div class="members-card animate__animated animate__fadeInUp">
-            <div class="avatar"><img src="ahona.jpg" alt="Ahona" style="width: 80px; height: 80px; border-radius: 50%;"></div>
-            <h2>Ahona Basu</h2>
-            <p><strong>Position:</strong> Secretary</p>
-            <p><strong>Department:</strong> Administration</p>
-            <div class="contact-info">
-                <p><strong>Email:</strong> ahona.basu38@gmail.com</p>
-            </div>
-        </div>
-        <div class="members-card animate__animated animate__fadeInUp">
-            <div class="avatar"><img src="sriya.jpg" alt="Sriya" style="width: 80px; height: 80px; border-radius: 50%;"></div>
-            <h2>Sriya Mandal</h2>
-            <p><strong>Position:</strong> Secretary</p>
-            <p><strong>Department:</strong> Administration</p>
-            <div class="contact-info">
-                <p><strong>Email:</strong> sriyamandal22@gmail.com</p>
-            </div>
-        </div>
-
-
-         <div class="members-card animate__animated animate__fadeInUp">
-           <div class="avatar"><img src="anubhav.jpg" alt="anubhav" style="width: 80px; height: 80px; border-radius: 50%;"></div>
-            <h2>Anubhav Das</h2>
-            <p><strong>Position:</strong> Secretary</p>
-            <p><strong>Department:</strong> Administration and IT</p>
-            <div class="contact-info">
-                <p><strong>Email:</strong> anubhavdas.151@gmail.com</p>
-            </div>
-        </div>
-
-       <div class="members-card animate__animated animate__fadeInUp">
-            <div class="avatar"><img src="ishmit.jpg" alt="ishmit" style="width: 80px; height: 80px; border-radius: 50%;"></div>
-            <h2>Ishmit</h2>
-            <p><strong>Position:</strong> Secretary</p>
-            <p><strong>Department:</strong> Administration</p>
-            <div class="contact-info">
-                <p><strong>Email:</strong> ishmitishi@gmail.com</p>
-            </div>
-        </div>
-
-
-        <div class="members-card animate__animated animate__fadeInUp">
-           <div class="avatar"><img src="ishika.jpg" alt="ishika" style="width: 80px; height: 80px; border-radius: 50%;"></div>
-            <h2>Ishika Mallick</h2>
-            <p><strong>Position:</strong> Class VIII Representative</p>
-            <p><strong>Department:</strong> Administration</p>
-            <div class="contact-info">
-                <p><strong>Email:</strong> ishikamallick78@gmail.com</p>
-            </div>
-        </div>
- 	<div class="members-card animate__animated animate__fadeInUp">
-            <div class="avatar">
-                <img src="" alt="Joyshnavo" style="width: 80px; height: 80px; border-radius: 50%;">
-            </div>
-            <h2>Joyoshnavo Bhattacharya</h2>
-            <p><strong>Position:</strong> Class VIII Representative</p>
-            <p><strong>Department:</strong> Administration</p>
-            <div class="contact-info">
-                <p><strong>Email: </strong>joysnavo.bhatta@gmail.com</p>
-            </div>
-        </div>
-       
-
-        <div class="members-card animate__animated animate__fadeInUp">
-            <div class="avatar"><img src="ritika.jpg" alt="ritika" style="width: 80px; height: 80px; border-radius: 50%;"></div>
-            <h2>Ritika Ray</h2>
-            <p><strong>Position:</strong> Class VII Representative</p>
-            <p><strong>Department:</strong> Administration</p>
-            <div class="contact-info">
-                <p><strong>Email:</strong> ritikaray2021@gmail.com</p>
-            </div>
-        </div>
-
-       
-          <div class="members-card animate__animated animate__fadeInUp">
-            <div class="avatar"><img src="samriddhi.jpg" alt="samriddhi" style="width: 80px; height: 80px; border-radius: 50%;"></div>
-            <h2>Samriddhi Bhattacharyya </h2>
-            <p><strong>Position:</strong> Class VI Representative</p>
-            <p><strong>Department:</strong> Administration</p>
-            <div class="contact-info">
-                <p><strong>Email:</strong> sunitabhattacharyya@gmail.com</p>
-            </div>
-        </div>
+    <!-- Dropdown for selecting sessions -->
+    <div class="dropdown">
+        <label for="sessionSelect"><strong>Select Session:</strong></label>
+        <select id="sessionSelect" onchange="updateMembers()">
+            <option value="2024-25" selected>2024-25</option>
+            <option value="2025-26">2025-26</option>
+        </select>
     </div>
-<br>
-<br>
-<center>
- <div class="footer">&copy; All Rights Reserved. Atlas Student's Council 2024</div>
-</center>
- 
+
+    <div class="members-container" id="membersContainer">
+        <!-- Members will be loaded dynamically -->
+    </div>
+
+    <div class="footer">&copy; All Rights Reserved. Atlas Student's Council 2024</div>
+
+    <script>
+        const membersData = {
+            "2024-25": [
+              { name: "Ashton Snighdo", position: "President", department: "Head of all departments", email: "ashtonsnigdhomistri@gmail.com", image: "Snig.jpg" },
+                { name: "Modhura Mandal", position: "Vice-President", department: "Public Relations & Assistant of President", email: "modhuramandal@gmail.com", image: "modhura.jpg" },
+                { name: "Avantika Karmakar", position: "Secretary", department: "Administration", email: "avantika2058@gmail.com", image: "avantika.jpg" },
+                { name: "Avirup De", position: "Secretary, Head of Finance and IT", department: "Finance & IT", email: "avirup_de@yahoo.com", image: "avi.jpg" },
+                { name: "Ankona Khanra", position: "Secretary", department: "Administration and Finance", email: "ankonakh16@gmail.com", image: "anko3.png" },
+                { name: "Rishav Mukherjee", position: "Joint Head of IT, Secretary", department: "IT and Finance", email: "mukherjeerishav09@gmail.com", image: "rishav.jpg" },
+                { name: "Jyotishko Sen", position: "Class X Representative", department: "Administration, Finance, IT", email: "senjyotishko@gmail.com", image: "jyotishko.jpg" },
+                { name: "Ahona Basu", position: "Secretary", department: "Administration", email: "ahona.basu38@gmail.com", image: "ahona.jpg" },
+                { name: "Sriya Mandal", position: "Secretary", department: "Administration", email: "sriyamandal22@gmail.com", image: "sriya.jpg" },
+                { name: "Anubhav Das", position: "Secretary", department: "Administration and IT", email: "anubhavdas.151@gmail.com", image: "anubhav.jpg" },
+                { name: "Ishmit", position: "Secretary", department: "Administration", email: "ishmitishi@gmail.com", image: "ishmit.jpg" },
+                { name: "Ishika Mallick", position: "Class VIII Representative", department: "Administration", email: "ishikamallick78@gmail.com", image: "ishika.jpg" },
+                { name: "Joyoshnavo Bhattacharya", position: "Class VIII Representative", department: "Administration", email: "joysnavo.bhatta@gmail.com", image: "" },
+                { name: "Ritika Ray", position: "Class VII Representative", department: "Administration", email: "ritikaray2021@gmail.com", image: "ritika.jpg" },
+                { name: "Samriddhi Bhattacharyya", position: "Class VI Representative", department: "Administration", email: "sunitabhattacharyya@gmail.com", image: "samriddhi.jpg" }
+            ],
+            "2025-26": [
+                { name: "Future Member 1", position: "President", department: "Head of all departments", email: "future1@example.com", image: "default.png" },
+                { name: "Future Member 2", position: "Vice-President", department: "Assistant of President", email: "future2@example.com", image: "default.png" }
+            ]
+        };
+
+        function updateMembers() {
+            const session = document.getElementById("sessionSelect").value;
+            const container = document.getElementById("membersContainer");
+            container.innerHTML = ""; // Clear existing members
+
+            if (membersData[session]) {
+                membersData[session].forEach(member => {
+                    const card = document.createElement("div");
+                    card.classList.add("members-card");
+                    card.innerHTML = `
+                        <div class="avatar"><img src="${member.image}" alt="${member.name}"></div>
+                        <h2>${member.name}</h2>
+                        <p><strong>Position:</strong> ${member.position}</p>
+                        <p><strong>Department:</strong> ${member.department}</p>
+                        <div class="contact-info">
+                            <p><strong>Email:</strong> ${member.email}</p>
+                        </div>
+                    `;
+                    container.appendChild(card);
+                });
+            } else {
+                container.innerHTML = `<p style="text-align: center; font-size: 1.2rem; color: white;">No members available for this session.</p>`;
+            }
+        }
+
+        window.onload = updateMembers;
+    </script>
 </body>
 </html>
-
