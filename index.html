@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Atlas Students' Council</title>
+    <link rel="icon" href="atlaslogo.png" type="image/png">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Cardo&family=Cormorant+Garamond:wght@700&display=swap');
+
+        body {
+            font-family: 'Cardo', serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            text-align: center;
+        }
+
+        /* Notice Popup */
+        .notice {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+        }
+
+        .notice-box {
+            background-color: white;
+            padding: 40px;
+            border-radius: 15px;
+            width: 60%;
+            max-width: 600px;
+            text-align: center;
+            position: relative;
+            border: 5px solid #d4aa00;
+        }
+
+        .notice-title {
+            font-size: 40px;
+            font-family: 'Cormorant Garamond', serif;
+            color: blue;
+        }
+
+        .close-btn {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background-color: #d4aa00;
+            border: none;
+            padding: 5px 10px;
+            font-size: 16px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        /* Header */
+        .header {
+            background-color: white;
+            padding: 20px;
+            font-size: 50px;
+            font-weight: bold;
+            color: #1a3e6e;
+            font-family: 'Cormorant Garamond', serif;
+        }
+
+        /* Navigation */
+        .nav {
+            background-color: #0c2340;
+            padding: 10px;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .nav a {
+            color: white;
+            text-decoration: none;
+            font-size: 18px;
+            transition: color 0.3s;
+        }
+
+        .nav a:hover {
+            color: #f4b63e;
+        }
+
+        /* Mobile Menu Button */
+        .menu-icon {
+            display: none;
+            font-size: 30px;
+            cursor: pointer;
+            color: white;
+            background-color: #0c2340;
+            padding: 10px;
+            text-align: center;
+            width: 100%;
+        }
+
+        .mobile-nav {
+            display: none;
+            flex-direction: column;
+            background-color: #0c2340;
+            width: 100%;
+        }
+
+        .mobile-nav a {
+            color: white;
+            text-decoration: none;
+            padding: 12px;
+            display: block;
+        }
+
+        .mobile-nav a:hover {
+            background-color: #f4b63e;
+            color: black;
+        }
+
+        /* Show menu when toggled */
+        .show {
+            display: flex;
+        }
+
+        /* Main Section */
+        .main {
+            background-color: #f4b63e;
+            padding: 40px;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+
+        .quote {
+            font-size: 24px;
+            font-style: italic;
+            flex: 1;
+            min-width: 300px;
+        }
+
+        .logo img {
+            width: 100%;
+            max-width: 400px;
+        }
+
+        /* Learn More Section */
+        .learn-more {
+            padding: 40px;
+            background-color: white;
+        }
+
+        .learn-more h2 {
+            font-size: 40px;
+            color: green;
+        }
+
+        .info-boxes {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .info-box {
+            background-color: #d4aa00;
+            padding: 40px;
+            width: 70%;
+            max-width: 350px;
+            font-size: 24px;
+            font-weight: bold;
+            border-radius: 10px;
+            transition: transform 0.3s;
+        }
+
+        .info-box:hover {
+            transform: scale(1.05);
+        }
+
+        .info-box a {
+            text-decoration: none;
+        }
+
+        /* Styled Buttons */
+        .visit-btn {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 12px 24px;
+            background-color: #0c2340;
+            color: white;
+            border: none;
+            font-size: 18px;
+            font-weight: bold;
+            cursor: pointer;
+            border-radius: 8px;
+            transition: all 0.3s ease-in-out;
+            text-transform: uppercase;
+        }
+
+        .visit-btn:hover {
+            background-color: #f4b63e;
+            color: black;
+            transform: scale(1.1);
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Footer */
+        .footer {
+            background-color: black;
+            color: white;
+            padding: 10px;
+            font-size: 16px;
+        }
+
+        /* Mobile Styles */
+        @media (max-width: 768px) {
+            .nav {
+                display: none;
+            }
+
+            .menu-icon {
+                display: block;
+            }
+        }
+    </style>
+    <script>
+        function closeNotice() {
+            document.getElementById("notice").classList.add("hidden");
+        }
+
+        function toggleMenu() {
+            document.getElementById("mobileMenu").classList.toggle("show");
+        }
+                document.addEventListener('contextmenu', function (e) {
+            e.preventDefault();
+           
+        });
+
+        // Disable F12 (DevTools)
+        document.addEventListener('keydown', function (e) {
+            if (e.key === 'F12' || (e.ctrlKey && e.shiftKey && e.key === 'I')) {
+                e.preventDefault();
+             
+            }
+        });
+
+        // Disable right-click and F12 for the entire page
+        window.addEventListener('load', function () {
+            document.body.addEventListener('contextmenu', function (e) {
+                e.preventDefault();
+            });
+
+            window.onkeydown = function (e) {
+                if (e.keyCode === 123) { // F12 key
+                    e.preventDefault();
+                  
+                }
+
+                // Preventing F12 and other dev tools access like right-click
+                if (e.ctrlKey && e.shiftKey && (e.key === 'I' || e.key === 'J')) {
+                    e.preventDefault();
+                
+                }
+            };
+        });
+    </script>
+</head>
+<body>
+
+    <!-- Notice Popup -->
+    <div class="notice" id="notice">
+        <div class="notice-box">
+            <button class="close-btn" onclick="closeNotice()">X</button>
+            <h1 class="notice-title">Notice</h1>
+            <strong>Welcome !</strong>
+            <p>This is ATLAS's own Website, stay updated with the website</p>
+        </div>
+    </div>
+
+    <div class="header">ATLAS STUDENTS' COUNCIL</div>
+
+    <div class="menu-icon" onclick="toggleMenu()">☰ MENU</div>
+    <div class="nav">
+        <a href="index.html">Home</a>
+        <a href="news.html">News</a>
+        <a href="members.html">Members</a>
+        <a href="about.html">About</a>
+        <a href="contact.html">Contact</a>
+        <a href="gallery.html">Gallery</a>
+    </div>
+
+    <div class="mobile-nav" id="mobileMenu">
+      <a href="index.html">Home</a>
+        <a href="news.html">News</a>
+        <a href="members.html">Members</a>
+        <a href="about.html">About</a>
+        <a href="contact.html">Contact</a>
+        <a href="gallery.html">Gallery</a>
+    </div>
+
+    <div class="main">
+        <div class="quote">"We are what we are because we dared to dream" - Atlas Council</div>
+        <div class="logo"><img src="atlaslogo.png" alt="Atlas Logo"></div>
+    </div>
+
+    <div class="learn-more">
+        <h2>Learn more</h2>
+        <div class="info-boxes">
+            <div class="info-box">
+               Stay informed and ahead of the curve by visiting our news page.
+                <a href="news.html"><button class="visit-btn">Visit</button></a>
+            </div>
+            <div class="info-box">
+               Look at the highlights of our recent events at the gallery tab.
+                <a href="gallery.html"><button class="visit-btn">Visit</button></a>
+            </div>
+            <div class="info-box">
+                 Know our members and how to contact them by visiting our members tab.
+                <a href="members.html"><button class="visit-btn">Visit</button></a>
+            </div>
+        </div>
+    </div>
+
+    <div class="footer">&copy; 2025 Atlas Students' Council. All Rights Reserved.</div>
+
+</body>
+</html>

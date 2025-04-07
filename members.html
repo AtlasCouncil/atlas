@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Members</title>
+    <link rel="icon" href="atlaslogo.png" type="image/png">
+ <script>
+    // Disable F12 (DevTools)
+        document.addEventListener('keydown', function (e) {
+            if (e.key === 'F12' || (e.ctrlKey && e.shiftKey && e.key === 'I')) {
+                e.preventDefault();
+             
+            }
+        });
+
+        // Disable right-click and F12 for the entire page
+        window.addEventListener('load', function () {
+            document.body.addEventListener('contextmenu', function (e) {
+                e.preventDefault();
+            });
+
+            window.onkeydown = function (e) {
+                if (e.keyCode === 123) { // F12 key
+                    e.preventDefault();
+                  
+                }
+
+                // Preventing F12 and other dev tools access like right-click
+                if (e.ctrlKey && e.shiftKey && (e.key === 'I' || e.key === 'J')) {
+                    e.preventDefault();
+                
+                }
+            };
+        });
+    </script>
+   
+ <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #a1880d;
+            color: #333;
+        }
+
+        .header {
+            background-color: #110f47;
+            color: white;
+            padding: 2rem 0;
+            text-align: center;
+            border-radius: 0 0 15px 15px;
+            margin-bottom: 2rem;
+            animation: fadeInDown 1s ease;
+        }
+
+        .header h1 {
+            font-weight: 600;
+            letter-spacing: 1.5px;
+        }
+
+        .back-button {
+            margin: 1rem;
+            padding: 0.5rem 1.5rem;
+            background-color: #170b5c;
+            color: white;
+            border: none;
+            border-radius: 30px;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .back-button:hover {
+            background-color: #3c2c94;
+        }
+
+        .dropdown {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .dropdown select {
+            padding: 0.6rem;
+            font-size: 1rem;
+            border-radius: 5px;
+            border: none;
+            background: #645ec4;
+            color: white;
+            cursor: pointer;
+        }
+
+        .members-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 2rem;
+            padding: 0 2rem;
+        }
+
+        .members-card {
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            padding: 1.5rem;
+            width: 230px;
+            height: 300px;
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .members-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        }
+
+        .avatar img {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+        }
+
+        h2 {
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        p {
+            margin-bottom: 0.5rem;
+            font-size: 0.9rem;
+            color: black;
+        }
+
+        .contact-info p {
+            font-size: 0.85rem;
+            color: #6c63ff;
+            margin-top: 1rem;
+        }
+
+        .footer {
+            background-color: black;
+            color: white;
+            padding: 10px;
+            font-size: 16px;
+            margin-top: 20px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>FOUNDING MEMBERS OF ATLAS</h1>
+    </div>
+
+    <center>
+        <div class="text-center">
+            <a href="index.html"><button class="back-button">Back to Homepage</button></a>
+        </div>
+    </center>
+
+    <!-- Dropdown for selecting sessions -->
+    <div class="dropdown">
+        <label for="sessionSelect"><strong>Select Session:</strong></label>
+        <select id="sessionSelect" onchange="updateMembers()">
+            <option value="2024-25" selected>2024-25</option>
+            <option value="2025-26">2025-26</option>
+        </select>
+    </div>
+
+    <div class="members-container" id="membersContainer">
+        <!-- Members will be loaded dynamically -->
+    </div>
+
+    <div class="footer">&copy; 2025 Atlas Students' Council. All Rights Reserved.</div>
+
+    <script>
+        const membersData = {
+            "2024-25": [
+         
+                { name: "Modhura Mandal", position: "President and class IX representative", department: "Head of All Departments", email: "modhuramandal@gmail.com", image: "modhura.jpg" },
+                { name: "Avantika Karmakar", position: "Vice-President", department: "Assisting Head of all departments", email: "avantika2058@gmail.com", image: "avantika.jpg" },
+		{ name: "Ashton Snigdho Mistri", position: "Founder President", department: "Administration", email: "ashtonsnigdhomistri@gmail.com", image: "Snig.jpg" },
+                { name: "Avirup De", position: "Secretary, Head of Finance and IT", department: "Finance & IT", email: "avirup_de@yahoo.com", image: "avi.jpg" },
+                { name: "Ankona Khanra", position: "Secretary", department: "Administration and Finance", email: "ankonakh16@gmail.com", image: "anko3.png" },
+                { name: "Rishav Mukherjee", position: "Joint Head of IT, Secretary", department: "IT and Finance", email: "mukherjeerishav09@gmail.com", image: "rishav.jpg" },
+                { name: "Jyotishko Sen", position: "Class X Representative", department: "Administration, Finance, IT", email: "senjyotishko@gmail.com", image: "jyotishko.jpg" },
+                { name: "Ahona Basu", position: "Secretary", department: "Administration", email: "ahona.basu38@gmail.com", image: "ahona.jpg" },
+                { name: "Sriya Mandal", position: "Secretary", department: "Administration", email: "sriyamandal22@gmail.com", image: "sriya.jpg" },
+                { name: "Anubhav Das", position: "ex-Secretary", department: "Administration and IT", email: "anubhavdas.151@gmail.com", image: "anubhav.jpg" },
+                { name: "Ishmit", position: "Secretary", department: "Administration", email: "ishmitishi@gmail.com", image: "ishmit.jpg" },
+                { name: "Ishika Mallick", position: "Class VIII Representative", department: "Administration", email: "ishikamallick78@gmail.com", image: "ishika.jpg" },
+                { name: "Joyoshnavo Bhattacharya", position: "Class VIII Representative", department: "Administration", email: "joysnavo.bhatta@gmail.com", image: "joysnavo.jpg" },
+                { name: "Ritika Ray", position: "Class VII Representative", department: "Administration", email: "ritikaray2021@gmail.com", image: "ritika.jpg" },
+		{ name: "Ahana Ganguly", position: "Class VII Representative", department: "Administration", email: "Unknown", image: "ahana.jpg" },
+		{ name: "Rebanta", position: "Class VI Representative", department: "Administration", email: "Unknown", image: "rebanta.jpg" },
+                { name: "Samriddhi Bhattacharyya", position: "Class VI Representative", department: "Administration", email: "sunitabhattacharyya@gmail.com", image: "samriddhi.jpg" }
+            ],
+            "2025-26": [
+                { name: "Future Member 1", position: "President", department: "Head of all departments", email: "future1@example.com", image: "default.png" },
+                { name: "Future Member 2", position: "Vice-President", department: "Assistant of President", email: "future2@example.com", image: "default.png" }
+            ]
+        };
+
+        function updateMembers() {
+            const session = document.getElementById("sessionSelect").value;
+            const container = document.getElementById("membersContainer");
+            container.innerHTML = ""; // Clear existing members
+
+            if (membersData[session]) {
+                membersData[session].forEach(member => {
+                    const card = document.createElement("div");
+                    card.classList.add("members-card");
+                    card.innerHTML = `
+                        <div class="avatar"><img src="${member.image}" alt="${member.name}"></div>
+                        <h2>${member.name}</h2>
+                        <p><strong>Position:</strong> ${member.position}</p>
+                        <p><strong>Department:</strong> ${member.department}</p>
+                        <div class="contact-info">
+                            <p><strong>Email:</strong> ${member.email}</p>
+                        </div>
+                    `;
+                    container.appendChild(card);
+                });
+            } else {
+                container.innerHTML = `<p style="text-align: center; font-size: 1.2rem; color: white;">No members available for this session.</p>`;
+            }
+        }
+
+        window.onload = updateMembers;
+    </script>
+</body>
+</html>
